@@ -1,7 +1,5 @@
 from django.contrib import admin
 from django.urls import path, include
-from django.conf import settings
-from django.conf.urls.static import static
 from django.views.generic import TemplateView
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -12,8 +10,12 @@ from rest_framework_simplejwt.views import (
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
-    path('api/v1/jwt/create/', TokenObtainPairView.as_view(), name='jwt-create'),
-    path('api/v1/jwt/refresh/', TokenRefreshView.as_view(), name='jwt-refresh'),
-    path('api/v1/jwt/verify/', TokenVerifyView.as_view(), name='jwt-verify'),
-    path('redoc/', TemplateView.as_view(template_name='redoc.html'), name='redoc'),
+    path('api/v1/jwt/create/', TokenObtainPairView.as_view(),
+         name='jwt-create'),
+    path('api/v1/jwt/refresh/', TokenRefreshView.as_view(),
+         name='jwt-refresh'),
+    path('api/v1/jwt/verify/', TokenVerifyView.as_view(),
+         name='jwt-verify'),
+    path('redoc/', TemplateView.as_view(template_name='redoc.html'),
+         name='redoc'),
 ]

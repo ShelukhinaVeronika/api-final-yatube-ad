@@ -1,10 +1,10 @@
 from rest_framework import viewsets, permissions, filters
-from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from django_filters.rest_framework import DjangoFilterBackend
 
 from posts.models import Post, Comment, Follow, Group
-from .serializers import PostSerializer, CommentSerializer, FollowSerializer, GroupSerializer
+from .serializers import PostSerializer, CommentSerializer
+from .serializers import FollowSerializer, GroupSerializer
 from .permissions import IsAuthorOrReadOnly
 
 
